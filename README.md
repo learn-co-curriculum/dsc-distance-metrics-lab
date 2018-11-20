@@ -48,26 +48,9 @@ In the cell below:
 ```python
 import numpy as np
 
-def distance(a, b, r=2, verbose=True):
-    if len(a) != len(b):
-        raise ValueError("Both vectors must be of equal length!")
-    
-    root = 1 / r
-    running_total = 0
-    
-    if verbose:
-        if r == 1:
-            print("Calculating Manhattan Distance:")
-        elif r == 2:
-            print('Calculating Euclidean Distance:')
-        else:
-            print("Calcuating Minkowski Distance (r={}):".format(r))
-    
-    for ind, val_a in enumerate(a):
-        val_b = b[ind]
-        running_total += np.power(np.abs(val_a - val_b), r)
-    
-    return np.power(running_total, root)
+# Complete this function! 
+def distance():
+    pass
 
 test_point_1 = (1, 2)
 test_point_2 = (4, 6)
@@ -75,14 +58,6 @@ print(distance(test_point_1, test_point_2)) # Expected Output: 5.0
 print(distance(test_point_1, test_point_2, r=1)) # Expected Output: 7.0
 print(distance(test_point_1, test_point_2, r=3)) # Expected Output: 4.497941445275415
 ```
-
-    Calculating Euclidean Distance:
-    5.0
-    Calculating Manhattan Distance:
-    7.0
-    Calcuating Minkowski Distance (r=3):
-    4.497941445275415
-    
 
 Great job! 
 
@@ -98,12 +73,8 @@ Point 2: (3, -1.2, -2, -1, 7)
 
 
 ```python
-print(distance((-2, -3.4, 4, 15, 7), (3, -1.2, -2, -1, 7))) # Expected Output: 17.939899665271266
+   # Expected Output: 17.939899665271266
 ```
-
-    Calculating Euclidean Distance:
-    17.939899665271266
-    
 
 ### Problem 2:
 
@@ -114,12 +85,8 @@ Point 2: \[1, -1, 5, 7, 14, 3, -2, 3, 3, 6\]
 
 
 ```python
-print(distance( [0, 0, 0, 7, 16, 2, 0, 1, 2, 1],  [1, -1, 5, 7, 14, 3, -2, 3, 3, 6], r=1)) # Expected Output: 20
+   # Expected Output: 20
 ```
-
-    Calculating Manhattan Distance:
-    20.0
-    
 
 ### Problem 3: 
 
@@ -130,12 +97,8 @@ Point 2: (3, 4, 1.5)
 
 
 ```python
-print(distance((-2, 7, 3.4), (3, 4, 1.5), r=3.5)) # Expected Output: 5.268789659188307
+   # Expected Output: 5.268789659188307
 ```
-
-    Calcuating Minkowski Distance (r=3.5):
-    5.268789659188307
-    
 
 # Conclusion
 
