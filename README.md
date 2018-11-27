@@ -13,11 +13,11 @@ You will be able to:
 * Calculate Manhattan Distance between 2 points
 * Compare and Contrast Manhattan, Euclidean, and Minkowski Distance
 
-### Getting Started
+## Getting Started
 
 To begin this lab, we'll start by writing a generalized function to calculate any of the three distance metrics we've learned about. Let's review what we know so far:
 
-#### How These Distance Metrics Are Related
+## How These Distance Metrics Are Related
 
 Recall from the previous lesson that **_Manhattan Distance_** and **_Euclidean Distance_** are both just special cases of **_Minkowski Distance_**. Take a look at the formula for Minkowski Distance below:
 
@@ -82,13 +82,13 @@ print(distance(test_point_1, test_point_2, r=3)) # Expected Output: 4.4979414452
     7.0
     Calcuating Minkowski Distance (r=3):
     4.497941445275415
-    
+
 
 Great job! 
 
 Now, let's use the function so solve some practice problems.
 
-### Problem 1:
+## Problem 1:
 
 Calculate the **_Euclidean Distance_** between the following points in 5-dimensional space:
 
@@ -103,9 +103,9 @@ print(distance((-2, -3.4, 4, 15, 7), (3, -1.2, -2, -1, 7))) # Expected Output: 1
 
     Calculating Euclidean Distance:
     17.939899665271266
-    
 
-### Problem 2:
+
+## Problem 2:
 
 Calculate the **_Manhattan Distance_** between the following points in 10-dimensional space:
 
@@ -119,9 +119,9 @@ print(distance( [0, 0, 0, 7, 16, 2, 0, 1, 2, 1],  [1, -1, 5, 7, 14, 3, -2, 3, 3,
 
     Calculating Manhattan Distance:
     20.0
-    
 
-### Problem 3: 
+
+## Problem 3: 
 
 Calculate the **_Minkowski Distance_** with a norm of 3.5 between the following points:
 
@@ -135,8 +135,8 @@ print(distance((-2, 7, 3.4), (3, 4, 1.5), r=3.5)) # Expected Output: 5.268789659
 
     Calcuating Minkowski Distance (r=3.5):
     5.268789659188307
-    
 
-# Conclusion
+
+## Summary
 
 Great job! Now that we know how to calculate distance metrics, we can easily apply this to writing a K-Nearest Neighbors classifer from scratch!
