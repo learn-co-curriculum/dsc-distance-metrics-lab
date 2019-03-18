@@ -21,13 +21,13 @@ To begin this lab, we'll start by writing a generalized function to calculate an
 
 Recall from the previous lesson that **_Manhattan Distance_** and **_Euclidean Distance_** are both just special cases of **_Minkowski Distance_**. Take a look at the formula for Minkowski Distance below:
 
-<img src='minkowski-equation.png'>
+<img src='minkowski-equation.png' width='300px'>
 
-**_Manhattan Distance_** is a special case where $r=1$ in the equation above (which means that we can remove the root operation and just keep the summation).  
+**_Manhattan Distance_** is a special case where $c=1$ in the equation above (which means that we can remove the root operation and just keep the summation).  
 
-**_Euclidean Distance_** is a special case where $r=2$ in the equation above.
+**_Euclidean Distance_** is a special case where $c=2$ in the equation above.
 
-Knowing this, we can create a generalized `distance` function that just calculates minkowski distance, and takes in `r` as a parameter. That way, we can use the same function for every problem, and still calculate Manhattan and Euclidean distance metrics by just passing in the appropriate values for the `r` parameter!
+Knowing this, we can create a generalized `distance` function that just calculates minkowski distance, and takes in `c` as a parameter. That way, we can use the same function for every problem, and still calculate Manhattan and Euclidean distance metrics by just passing in the appropriate values for the `c` parameter!
 
 In the cell below:
 
@@ -35,8 +35,8 @@ In the cell below:
 * This function should take in 3 arguments:
     * `a`, a tuple or array that describes a vector in n-dimensional space. 
     * `b`, a tuple or array that describes a vector in n-dimensional space (this must be the same length as `a`!)
-    * `r`, which tells us the norm to calculate the vector space (if set to `1`, the result will be Manhattan, while `2` will calculate Euclidean distance)
-* Since euclidean distance is the most common distance metric used, this function should default to using `r=2` if no value is set for `r`.
+    * `c`, which tells us the norm to calculate the vector space (if set to `1`, the result will be Manhattan, while `2` will calculate Euclidean distance)
+* Since euclidean distance is the most common distance metric used, this function should default to using `c=2` if no value is set for `c`.
 * Include a parameter called `verbose` which is set to `True` by default. If true, the function should print out if the distance metric returned is a measurement of Manhattan, Euclidean, or Minkowski distance.  
 * This function should implement the minkowski distance equation above, and return the result. 
 
@@ -48,39 +48,39 @@ In the cell below:
 ```python
 import numpy as np
 
-def distance(a, b, r=2, verbose=True):
+def distance(a, b, c=2, verbose=True):
     if len(a) != len(b):
         raise ValueError("Both vectors must be of equal length!")
     
-    root = 1 / r
+    root = 1 / c
     running_total = 0
     
     if verbose:
-        if r == 1:
+        if c == 1:
             print("Calculating Manhattan Distance:")
-        elif r == 2:
+        elif c == 2:
             print('Calculating Euclidean Distance:')
         else:
-            print("Calcuating Minkowski Distance (r={}):".format(r))
+            print("Calcuating Minkowski Distance (c={}):".format(c))
     
     for ind, val_a in enumerate(a):
         val_b = b[ind]
-        running_total += np.power(np.abs(val_a - val_b), r)
+        running_total += np.power(np.abs(val_a - val_b), c)
     
     return np.power(running_total, root)
 
 test_point_1 = (1, 2)
 test_point_2 = (4, 6)
 print(distance(test_point_1, test_point_2)) # Expected Output: 5.0
-print(distance(test_point_1, test_point_2, r=1)) # Expected Output: 7.0
-print(distance(test_point_1, test_point_2, r=3)) # Expected Output: 4.497941445275415
+print(distance(test_point_1, test_point_2, c=1)) # Expected Output: 7.0
+print(distance(test_point_1, test_point_2, c=3)) # Expected Output: 4.497941445275415
 ```
 
     Calculating Euclidean Distance:
     5.0
     Calculating Manhattan Distance:
     7.0
-    Calcuating Minkowski Distance (r=3):
+    Calcuating Minkowski Distance (c=3):
     4.497941445275415
 
 
@@ -114,7 +114,7 @@ Point 2: \[1, -1, 5, 7, 14, 3, -2, 3, 3, 6\]
 
 
 ```python
-print(distance( [0, 0, 0, 7, 16, 2, 0, 1, 2, 1],  [1, -1, 5, 7, 14, 3, -2, 3, 3, 6], r=1)) # Expected Output: 20
+print(distance( [0, 0, 0, 7, 16, 2, 0, 1, 2, 1],  [1, -1, 5, 7, 14, 3, -2, 3, 3, 6], c=1)) # Expected Output: 20
 ```
 
     Calculating Manhattan Distance:
@@ -130,10 +130,10 @@ Point 2: (3, 4, 1.5)
 
 
 ```python
-print(distance((-2, 7, 3.4), (3, 4, 1.5), r=3.5)) # Expected Output: 5.268789659188307
+print(distance((-2, 7, 3.4), (3, 4, 1.5), c=3.5)) # Expected Output: 5.268789659188307
 ```
 
-    Calcuating Minkowski Distance (r=3.5):
+    Calcuating Minkowski Distance (c=3.5):
     5.268789659188307
 
 
