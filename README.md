@@ -3,7 +3,7 @@
 
 ## Introduction
 
-In this lab, we'll calculate various distances between multiple points using the distance metrics we learned about!
+In this lab, you'll calculate various distances between multiple points using the distance metrics you learned about!
 
 ## Objectives
 
@@ -15,30 +15,30 @@ You will be able to:
 
 ## Getting Started
 
-To begin this lab, we'll start by writing a generalized function to calculate any of the three distance metrics we've learned about. Let's review what we know so far:
+To begin this lab, you'll start by writing a generalized function to calculate any of the three distance metrics you've learned about. Let's review what you know so far:
 
 ## How These Distance Metrics Are Related
 
 Recall from the previous lesson that **_Manhattan Distance_** and **_Euclidean Distance_** are both just special cases of **_Minkowski Distance_**. Take a look at the formula for Minkowski Distance below:
 
-<img src='minkowski-equation.png' width='300px'>
+$$\large d(x,y) = \left(\sum_{i=1}^{n}|x_i - y_i|^c\right)^\frac{1}{c}$$  
 
-**_Manhattan Distance_** is a special case where $c=1$ in the equation above (which means that we can remove the root operation and just keep the summation).
+**_Manhattan Distance_** is a special case where $c=1$ in the equation above (which means that you can remove the root operation and just keep the summation).  
 
 **_Euclidean Distance_** is a special case where $c=2$ in the equation above.
 
-Knowing this, we can create a generalized `distance` function that just calculates minkowski distance, and takes in `c` as a parameter. That way, we can use the same function for every problem, and still calculate Manhattan and Euclidean distance metrics by just passing in the appropriate values for the `c` parameter!
+Knowing this, you can create a generalized `distance` function that just calculates minkowski distance, and takes in `c` as a parameter. That way, you can use the same function for every problem, and still calculate Manhattan and Euclidean distance metrics by just passing in the appropriate values for the `c` parameter!
 
 In the cell below:
 
-* Complete the `distance` function.
+* Complete the `distance` function. 
 * This function should take in 3 arguments:
-    * `a`, a tuple or array that describes a vector in n-dimensional space.
+    * `a`, a tuple or array that describes a vector in n-dimensional space. 
     * `b`, a tuple or array that describes a vector in n-dimensional space (this must be the same length as `a`!)
     * `c`, which tells us the norm to calculate the vector space (if set to `1`, the result will be Manhattan, while `2` will calculate Euclidean distance)
 * Since euclidean distance is the most common distance metric used, this function should default to using `c=2` if no value is set for `c`.
-* Include a parameter called `verbose` which is set to `True` by default. If true, the function should print out if the distance metric returned is a measurement of Manhattan, Euclidean, or Minkowski distance.
-* This function should implement the minkowski distance equation above, and return the result.
+* Include a parameter called `verbose` which is set to `True` by default. If true, the function should print out if the distance metric returned is a measurement of Manhattan, Euclidean, or Minkowski distance.  
+* This function should implement the minkowski distance equation above, and return the result. 
 
 **_NOTE:_**  Remember that for Manhattan Distance, you need to make use of `np.abs()` to get the absolute value of the distance for each dimension, since we don't have the squaring function to make this positive for us!
 
@@ -48,7 +48,7 @@ In the cell below:
 ```python
 import numpy as np
 
-# Complete this function!
+# Complete this function! 
 def distance():
     pass
 
@@ -59,9 +59,9 @@ print(distance(test_point_1, test_point_2, c=1)) # Expected Output: 7.0
 print(distance(test_point_1, test_point_2, c=3)) # Expected Output: 4.497941445275415
 ```
 
-Great job!
+Great job! 
 
-Now, let's use the function so solve some practice problems.
+Now, use your function so solve some practice problems.
 
 ## Problem 1:
 
@@ -80,7 +80,7 @@ Point 2: (3, -1.2, -2, -1, 7)
 
 Calculate the **_Manhattan Distance_** between the following points in 10-dimensional space:
 
-Point 1: \[0, 0, 0, 7, 16, 2, 0, 1, 2, 1\]
+Point 1: \[0, 0, 0, 7, 16, 2, 0, 1, 2, 1\]  
 Point 2: \[1, -1, 5, 7, 14, 3, -2, 3, 3, 6\]
 
 
@@ -88,7 +88,7 @@ Point 2: \[1, -1, 5, 7, 14, 3, -2, 3, 3, 6\]
    # Expected Output: 20
 ```
 
-## Problem 3:
+## Problem 3: 
 
 Calculate the **_Minkowski Distance_** with a norm of 3.5 between the following points:
 
@@ -102,4 +102,4 @@ Point 2: (3, 4, 1.5)
 
 ## Summary
 
-Great job! Now that we know how to calculate distance metrics, we can easily apply this to writing a K-Nearest Neighbors classifer from scratch!
+Great job! Now that you know how to calculate distance metrics, you can easily apply this to writing a K-Nearest Neighbors classifer from scratch!
