@@ -3,7 +3,7 @@
 
 ## Introduction
 
-In this lab, we'll calculate various distances between multiple points using the distance metrics we learned about!
+In this lab, you'll calculate various distances between multiple points using the distance metrics you learned about!
 
 ## Objectives
 
@@ -15,19 +15,19 @@ You will be able to:
 
 ## Getting Started
 
-To begin this lab, we'll start by writing a generalized function to calculate any of the three distance metrics we've learned about. Let's review what we know so far:
+To begin this lab, you'll start by writing a generalized function to calculate any of the three distance metrics you've learned about. Let's review what you know so far:
 
 ## How These Distance Metrics Are Related
 
 Recall from the previous lesson that **_Manhattan Distance_** and **_Euclidean Distance_** are both just special cases of **_Minkowski Distance_**. Take a look at the formula for Minkowski Distance below:
 
-<img src='minkowski-equation.png' width='300px'>
+$$\large d(x,y) = \left(\sum_{i=1}^{n}|x_i - y_i|^c\right)^\frac{1}{c}$$  
 
-**_Manhattan Distance_** is a special case where $c=1$ in the equation above (which means that we can remove the root operation and just keep the summation).  
+**_Manhattan Distance_** is a special case where $c=1$ in the equation above (which means that you can remove the root operation and just keep the summation).  
 
 **_Euclidean Distance_** is a special case where $c=2$ in the equation above.
 
-Knowing this, we can create a generalized `distance` function that just calculates minkowski distance, and takes in `c` as a parameter. That way, we can use the same function for every problem, and still calculate Manhattan and Euclidean distance metrics by just passing in the appropriate values for the `c` parameter!
+Knowing this, you can create a generalized `distance` function that just calculates minkowski distance, and takes in `c` as a parameter. That way, you can use the same function for every problem, and still calculate Manhattan and Euclidean distance metrics by just passing in the appropriate values for the `c` parameter!
 
 In the cell below:
 
@@ -86,7 +86,7 @@ print(distance(test_point_1, test_point_2, c=3)) # Expected Output: 4.4979414452
 
 Great job! 
 
-Now, let's use the function so solve some practice problems.
+Now, use your function so solve some practice problems.
 
 ## Problem 1:
 
@@ -139,4 +139,4 @@ print(distance((-2, 7, 3.4), (3, 4, 1.5), c=3.5)) # Expected Output: 5.268789659
 
 ## Summary
 
-Great job! Now that we know how to calculate distance metrics, we can easily apply this to writing a K-Nearest Neighbors classifer from scratch!
+Great job! Now that you know how to calculate distance metrics, you can easily apply this to writing a K-Nearest Neighbors classifer from scratch!
