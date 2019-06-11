@@ -27,7 +27,7 @@ $$\large d(x,y) = \left(\sum_{i=1}^{n}|x_i - y_i|^c\right)^\frac{1}{c}$$
 
 **_Euclidean Distance_** is a special case where $c=2$ in the equation above.
 
-Knowing this, you can create a generalized `distance` function that just calculates minkowski distance, and takes in `c` as a parameter. That way, you can use the same function for every problem, and still calculate Manhattan and Euclidean distance metrics by just passing in the appropriate values for the `c` parameter!
+Knowing this, you can create a generalized `distance` function that just calculates Minkowski distance, and takes in `c` as a parameter. That way, you can use the same function for every problem, and still calculate Manhattan and Euclidean distance metrics by just passing in the appropriate values for the `c` parameter!
 
 In the cell below:
 
@@ -38,7 +38,7 @@ In the cell below:
     * `c`, which tells us the norm to calculate the vector space (if set to `1`, the result will be Manhattan, while `2` will calculate Euclidean distance)
 * Since euclidean distance is the most common distance metric used, this function should default to using `c=2` if no value is set for `c`.
 * Include a parameter called `verbose` which is set to `True` by default. If true, the function should print out if the distance metric returned is a measurement of Manhattan, Euclidean, or Minkowski distance.  
-* This function should implement the minkowski distance equation above, and return the result. 
+* This function should implement the Minkowski distance equation above, and return the result. 
 
 **_NOTE:_**  Remember that for Manhattan Distance, you need to make use of `np.abs()` to get the absolute value of the distance for each dimension, since we don't have the squaring function to make this positive for us!
 
@@ -139,4 +139,4 @@ print(distance((-2, 7, 3.4), (3, 4, 1.5), c=3.5)) # Expected Output: 5.268789659
 
 ## Summary
 
-Great job! Now that you know how to calculate distance metrics, you can easily apply this to writing a K-Nearest Neighbors classifer from scratch!
+Great job! Now that you know how to calculate distance metrics, you can easily apply this to writing a K-Nearest Neighbors classifier from scratch!
