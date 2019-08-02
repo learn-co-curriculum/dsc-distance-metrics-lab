@@ -59,6 +59,47 @@ print(distance(test_point_1, test_point_2, c=1)) # Expected Output: 7.0
 print(distance(test_point_1, test_point_2, c=3)) # Expected Output: 4.497941445275415
 ```
 
+
+```python
+# __SOLUTION__ 
+import numpy as np
+
+def distance(a, b, c=2, verbose=True):
+    if len(a) != len(b):
+        raise ValueError("Both vectors must be of equal length!")
+    
+    root = 1 / c
+    running_total = 0
+    
+    if verbose:
+        if c == 1:
+            print("Calculating Manhattan Distance:")
+        elif c == 2:
+            print('Calculating Euclidean Distance:')
+        else:
+            print("Calcuating Minkowski Distance (c={}):".format(c))
+    
+    for ind, val_a in enumerate(a):
+        val_b = b[ind]
+        running_total += np.power(np.abs(val_a - val_b), c)
+    
+    return np.power(running_total, root)
+
+test_point_1 = (1, 2)
+test_point_2 = (4, 6)
+print(distance(test_point_1, test_point_2)) # Expected Output: 5.0
+print(distance(test_point_1, test_point_2, c=1)) # Expected Output: 7.0
+print(distance(test_point_1, test_point_2, c=3)) # Expected Output: 4.497941445275415
+```
+
+    Calculating Euclidean Distance:
+    5.0
+    Calculating Manhattan Distance:
+    7.0
+    Calcuating Minkowski Distance (c=3):
+    4.497941445275415
+
+
 Great job! 
 
 Now, use your function so solve some practice problems.
@@ -76,6 +117,16 @@ Point 2: (3, -1.2, -2, -1, 7)
    # Expected Output: 17.939899665271266
 ```
 
+
+```python
+# __SOLUTION__ 
+print(distance((-2, -3.4, 4, 15, 7), (3, -1.2, -2, -1, 7))) # Expected Output: 17.939899665271266
+```
+
+    Calculating Euclidean Distance:
+    17.939899665271266
+
+
 ## Problem 2:
 
 Calculate the **_Manhattan Distance_** between the following points in 10-dimensional space:
@@ -88,6 +139,16 @@ Point 2: \[1, -1, 5, 7, 14, 3, -2, 3, 3, 6\]
    # Expected Output: 20
 ```
 
+
+```python
+# __SOLUTION__ 
+print(distance( [0, 0, 0, 7, 16, 2, 0, 1, 2, 1],  [1, -1, 5, 7, 14, 3, -2, 3, 3, 6], c=1)) # Expected Output: 20
+```
+
+    Calculating Manhattan Distance:
+    20.0
+
+
 ## Problem 3: 
 
 Calculate the **_Minkowski Distance_** with a norm of 3.5 between the following points:
@@ -99,6 +160,16 @@ Point 2: (3, 4, 1.5)
 ```python
    # Expected Output: 5.268789659188307
 ```
+
+
+```python
+# __SOLUTION__ 
+print(distance((-2, 7, 3.4), (3, 4, 1.5), c=3.5)) # Expected Output: 5.268789659188307
+```
+
+    Calcuating Minkowski Distance (c=3.5):
+    5.268789659188307
+
 
 ## Summary
 
