@@ -68,22 +68,15 @@ def distance(a, b, c=2, verbose=True):
     if len(a) != len(b):
         raise ValueError("Both vectors must be of equal length!")
     
-    root = 1 / c
-    running_total = 0
-    
     if verbose:
         if c == 1:
             print("Calculating Manhattan Distance:")
         elif c == 2:
-            print('Calculating Euclidean Distance:')
+            print("Calculating Euclidean Distance:")
         else:
-            print("Calcuating Minkowski Distance (c={}):".format(c))
-    
-    for ind, val_a in enumerate(a):
-        val_b = b[ind]
-        running_total += np.power(np.abs(val_a - val_b), c)
-    
-    return np.power(running_total, root)
+            print(f"Calcuating Minkowski Distance (c={c}):")
+            
+    return np.power(sum(np.power(np.abs(np.array(a) - np.array(b)), c)), 1/c)
 
 test_point_1 = (1, 2)
 test_point_2 = (4, 6)
@@ -136,13 +129,13 @@ Point 2: \[1, -1, 5, 7, 14, 3, -2, 3, 3, 6\]
 
 
 ```python
-   # Expected Output: 20
+   # Expected Output: 20.0
 ```
 
 
 ```python
 # __SOLUTION__ 
-print(distance( [0, 0, 0, 7, 16, 2, 0, 1, 2, 1],  [1, -1, 5, 7, 14, 3, -2, 3, 3, 6], c=1)) # Expected Output: 20
+print(distance( [0, 0, 0, 7, 16, 2, 0, 1, 2, 1],  [1, -1, 5, 7, 14, 3, -2, 3, 3, 6], c=1)) # Expected Output: 20.0
 ```
 
     Calculating Manhattan Distance:
