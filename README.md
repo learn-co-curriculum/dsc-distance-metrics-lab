@@ -85,7 +85,7 @@ Point 2: \[1, -1, 5, 7, 14, 3, -2, 3, 3, 6\]
 
 
 ```python
-   # Expected Output: 20
+   # Expected Output: 20.0
 ```
 
 ## Problem 3: 
